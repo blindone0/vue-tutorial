@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="post">
-            <div><strong>Name: </strong> Post about js</div>
-            <div><strong>Desk: </strong> Vierd js syntax</div>
-        </div>         
+        <div class="post" v-for="post in posts">
+            <div><strong>Name: </strong> {{ post.title }}</div>
+            <div><strong>Description: </strong> {{ post.body }}</div>
+        </div>
     </div>
 </template>
 
@@ -12,8 +12,11 @@ export default {
 
     data() {
         return {
-            likes: 0,
-            dislikes: 0,
+            posts: [
+                {id: 1, title: 'js post', body: 'dscription lorem'},
+                {id: 2, title: 'html post 11', body: 'dscription lorem 323'},
+                {id: 3, title: 'css post 12', body: 'dscription lorem 525'},
+            ],
 
         }
     },
@@ -39,5 +42,6 @@ export default {
 .post {
     padding: 15px;
     border: 2px solid teal;
+    margin-top: 15px;
 }
 </style>
