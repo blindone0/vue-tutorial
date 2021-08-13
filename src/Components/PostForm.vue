@@ -1,15 +1,22 @@
 <template>
               <form @submit.prevent>
                 <h4>Post creation</h4>
-                <input v-bind:value="title" @input="title = $event.target.value" class="input" type="text" placeholder="Name">
-                <input v-bind:value="body" @input="body = $event.target.value" class="input" type="text" placeholder="Description">
+                <input v-model="post.title" class="input" type="text" placeholder="Name">
+                <input v-model="post.body" class="input" type="text" placeholder="Description">
                 <button class="btn">Add post</button>
             </form>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            post: {
+                title: '',
+                body: '',
+            }
+        }
+    }
 }
 </script>
 
