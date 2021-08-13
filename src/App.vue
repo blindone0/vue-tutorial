@@ -3,9 +3,9 @@
         <div>
             <form>
                 <h4>Post creation</h4>
-                <input class="input" type="text" placeholder="Name">
-                <input class="input" type="text" placeholder="Description">
-                <button class="btn">Add post</button>
+                <input v-bind:value="title" @input="title = $event.target.value" class="input" type="text" placeholder="Name">
+                <input v-bind:value="body" @input="body = $event.target.value" class="input" type="text" placeholder="Description">
+                <button @click="createPost" class="btn">Add post</button>
             </form>
         </div>
         <div class="post" v-for="post in posts">
@@ -25,15 +25,14 @@ export default {
                 {id: 2, title: 'html post 11', body: 'dscription lorem 323'},
                 {id: 3, title: 'css post 12', body: 'dscription lorem 525'},
             ],
+            title: '',
+            body: ''
 
         }
     },
     methods: {
-        addLike() {
-            this.likes +=1;
-        },
-        addDislike() {
-            this.dislikes +=1;
+        createPost() {
+
         }
     }
     
