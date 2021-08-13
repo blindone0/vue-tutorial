@@ -1,8 +1,8 @@
 <template>
     <div>
         <div>
-            <button>Like</button>
-            <button>Dislike</button>
+            <button v-on:click="addLike">Like</button>
+            <button v-on:click="addDislike">Dislike</button>
         </div>
         <div>Likes count {{ likes }}</div>
         <div>Likes count {{ dislikes }}</div>             
@@ -24,7 +24,7 @@ export default {
             this.likes +=1;
         },
         addDislike() {
-            this.likes +=1;
+            this.dislikes +=1;
         }
     }
     
