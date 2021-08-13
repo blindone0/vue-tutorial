@@ -29,8 +29,8 @@ export default {
         }
     },
     methods: {
-        createPost(post, second, third) {
-            console.log(post, second, third);
+        createPost(post) {
+            this.posts.push(post)
         }
     }
     
