@@ -1,9 +1,6 @@
 <template>
     <div>
-        It Works
-        <button>Click Me</button>
-        <input type="text">
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <div>Likes count {{ likes }}</div>        
     </div>
 </template>
 
@@ -12,7 +9,8 @@ export default {
 
     data() {
         return {
-            
+            likes: 0,
+
         }
     }
     
