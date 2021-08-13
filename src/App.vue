@@ -1,11 +1,9 @@
 <template>
     <div>
-        <div>
-            <button v-on:click="addLike">Like</button>
-            <button @click="addDislike">Dislike</button>
-        </div>
-        <div>Likes count {{ likes }}</div>
-        <div>Likes count {{ dislikes }}</div>             
+        <div class="post">
+            <div><strong>Name: </strong> Post about js</div>
+            <div><strong>Desk: </strong> Vierd js syntax</div>
+        </div>         
     </div>
 </template>
 
@@ -31,6 +29,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
