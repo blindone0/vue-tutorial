@@ -2,15 +2,15 @@
     <div class="app">
         <div>
             <post-form/>
-            <post-list/>
+            <post-list :posts="posts"/>
         </div>
 
     </div>
 </template>
 
 <script>
-import PostForm from "@/components/PostForm"
-import PostList from "@/components/PostList"
+import PostForm from "@/Components/PostForm"
+import PostList from "@/Components/PostList"
 
 export default {
 
