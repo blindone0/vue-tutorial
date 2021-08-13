@@ -2,7 +2,7 @@
     <div>
         <div>
             <button v-on:click="addLike">Like</button>
-            <button v-on:click="addDislike">Dislike</button>
+            <button @click="addDislike">Dislike</button>
         </div>
         <div>Likes count {{ likes }}</div>
         <div>Likes count {{ dislikes }}</div>             
