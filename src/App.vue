@@ -1,22 +1,23 @@
 <template>
     <div class="app">
         <div>
-            <form @submit.prevent>
-                <h4>Post creation</h4>
-                <input v-bind:value="title" @input="title = $event.target.value" class="input" type="text" placeholder="Name">
-                <input v-bind:value="body" @input="body = $event.target.value" class="input" type="text" placeholder="Description">
-                <button @click="createPost" class="btn">Add post</button>
-            </form>
+            <post-form/>
+            <post-list/>
         </div>
-        <div class="post" v-for="post in posts">
-            <div><strong>Name: </strong> {{ post.title }}</div>
-            <div><strong>Description: </strong> {{ post.body }}</div>
-        </div>
+
     </div>
 </template>
 
 <script>
+import PostForm from "@/components/PostForm"
+import PostList from "@/components/PostList"
+
 export default {
+
+    components: {
+        PostList,
+        PostForm
+    },
 
     data() {
         return {
@@ -38,6 +39,8 @@ export default {
                 body: this.body,
             }
             this.posts.push(newPost);
+            this.title = '';
+            this.body = '';
         }
     }
     
@@ -55,30 +58,5 @@ export default {
     padding: 20px;
 }
 
-.post {
-    padding: 15px;
-    border: 2px solid teal;
-    margin-top: 15px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.input {
-    border: 2px solid teal;
-    padding: 10px 15px;
-    margin-top: 15px;
-}
-
-.btn {
-    margin-top: 15px;
-    align-self: flex-end;
-    padding: 10px 15px;
-    background: none;
-    color:teal;
-    border: 1px solid teal;
-}
 
 </style>
