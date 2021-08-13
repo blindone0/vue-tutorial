@@ -2,8 +2,8 @@
               <form @submit.prevent>
                 <h4>Post creation</h4>
                 <input v-model="post.title" class="input" type="text" placeholder="Name">
-                <input v-model="post.body" class="input" type="text" placeholder="Description">
-                <button class="btn">Add post</button>
+                <input v-model="post.body"   class="input" type="text" placeholder="Description">
+                <button @click="createPost" class="btn">Add post</button>
             </form>
 </template>
 
@@ -14,6 +14,16 @@ export default {
             post: {
                 title: '',
                 body: '',
+            }
+        }
+    },
+    methods: {
+        createPost() {
+            this.post.id = Date.now();  
+            this.$emit('create', this.post)
+            this.post = {
+                title : '',
+                body : ''
             }
         }
     }
