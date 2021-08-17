@@ -3,14 +3,14 @@
                 <h4>Post creation</h4>
                 <input v-model="post.title" class="input" type="text" placeholder="Name">
                 <input v-model="post.body"   class="input" type="text" placeholder="Description">
-                <my-button @click="createPost">Add post</my-button>
+                <my-button @click="createPost" style="align-self: flex-end; margin-top: 15px;">Add post</my-button>
             </form>
 </template>
 
 <script>
-import MyButton from './UI/MyButton.vue';
+
 export default {
-  components: { MyButton },
+
     data() {
         return {
             post: {
