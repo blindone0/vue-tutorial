@@ -1,7 +1,7 @@
 import MyButton from '@/Components/UI/MyButton';
-import MyButton2 from '@/Components/UI/MyButton2';
+import MyInput from '@/Components/UI/MyInput';
 
 export default {
     MyButton,
-    MyButton2
+    MyInput
 }
