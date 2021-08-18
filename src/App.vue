@@ -1,6 +1,12 @@
 <template>
     <div class="app">
-        <my-dialog :show="true">
+        <h1>Post page</h1>
+        <input type="text" v-model.trim="modificatorValue">
+        <my-button
+            @click="showDialog"
+            style="margin: 15px 0;"
+        >Create post</my-button>
+        <my-dialog v-model:show="dialogVisible">
             <post-form @create="createPost" />
         </my-dialog>
             
@@ -12,13 +18,15 @@
 <script>
 import PostForm from "@/Components/PostForm"
 import PostList from "@/Components/PostList"
+import MyButton from './Components/UI/MyButton.vue'
 
 
 export default {
 
     components: {
         PostList,
-        PostForm
+        PostForm,
+        MyButton
     },
 
     data() {
@@ -28,16 +36,22 @@ export default {
                 {id: 2, title: 'html post 11', body: 'dscription lorem 323'},
                 {id: 3, title: 'css post 12', body: 'dscription lorem 525'},
             ],
+            dialogVisible: false,
+            modificatorValue: '',
         }
     },
     methods: {
         createPost(post) {
             this.posts.push(post)
+            this.dialogVisible = false
         },
         removePost(post) {
             console.log("removePost call")
             this.posts = this.posts.filter(p => p.id !== post.id)
-        }
+        },
+        showDialog() {
+            this.dialogVisible = true
+        },
     }
     
 }
