@@ -2,7 +2,7 @@
     <div class="app">
         <div>
             <post-form @create="createPost" />
-            <post-list :posts="posts" />
+            <post-list :posts="posts" @remove="removePost" />
         </div>
 
     </div>
@@ -32,6 +32,10 @@ export default {
     methods: {
         createPost(post) {
             this.posts.push(post)
+        },
+        removePost(post) {
+            console.log("removePost call")
+            this.posts = this.posts.filter(p => p.id !== post.id)
         }
     }
     
