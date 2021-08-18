@@ -1,9 +1,10 @@
 <template>
     <div class="app">
-        <div>
+        <my-dialog :show="true">
             <post-form @create="createPost" />
-            <post-list :posts="posts" @remove="removePost" />
-        </div>
+        </my-dialog>
+            
+        <post-list :posts="posts" @remove="removePost" />
 
     </div>
 </template>
