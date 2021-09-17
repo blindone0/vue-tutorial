@@ -1,6 +1,7 @@
 <template>
     <div class="app">
         <h1>Post page</h1>
+        <my-button @click="fetchPosts">Fetch posts</my-button>
         <input type="text" v-model.trim="modificatorValue">
         <my-button
             @click="showDialog"
@@ -19,6 +20,7 @@
 import PostForm from "@/Components/PostForm"
 import PostList from "@/Components/PostList"
 import MyButton from './Components/UI/MyButton.vue'
+import axios from 'axios';
 
 
 export default {
@@ -32,9 +34,9 @@ export default {
     data() {
         return {
             posts: [
-                {id: 1, title: 'js post', body: 'dscription lorem'},
-                {id: 2, title: 'html post 11', body: 'dscription lorem 323'},
-                {id: 3, title: 'css post 12', body: 'dscription lorem 525'},
+                // {id: 1, title: 'js post', body: 'dscription lorem'},
+                // {id: 2, title: 'html post 11', body: 'dscription lorem 323'},
+                // {id: 3, title: 'css post 12', body: 'dscription lorem 525'},
             ],
             dialogVisible: false,
             modificatorValue: '',
@@ -52,6 +54,14 @@ export default {
         showDialog() {
             this.dialogVisible = true
         },
+        async  fetchPosts() {
+            try {
+                const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
+                this.posts = response.data;
+            } catch (e) {
+                alert("Error")
+            }
+        }
     }
     
 }
